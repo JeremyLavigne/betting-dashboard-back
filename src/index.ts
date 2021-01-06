@@ -3,15 +3,13 @@ import express from "express";
 import mongoose from "mongoose";
 import { json } from "body-parser";
 
+// Routes
 import lastUpdateRouter from "./routes/lastUpdate";
 
 dotenv.config();
-
 const app = express();
-app.use(json());
 
-app.use(lastUpdateRouter);
-
+// Database
 mongoose.connect(
   `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.tjm5l.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
   {
@@ -23,6 +21,9 @@ mongoose.connect(
     console.log("connected to mongo");
   }
 );
+
+app.use(json());
+app.use("/api/last-update", lastUpdateRouter);
 
 app.listen(3000, () => {
   console.log("server is listening port 3000");

@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
-
-// interface ILastUpdate {
-//   championship: string;
-//   date: Date;
-// }
+import { ILastUpdate } from "../ts/app.types";
 
 const lastUpdateSchema = new mongoose.Schema({
   championship: {
@@ -16,10 +12,6 @@ const lastUpdateSchema = new mongoose.Schema({
   },
 });
 
-// lastUpdateSchema.statics.build = (attr: ILastUpdate) => {
-//   return new LastUpdate(attr);
-// };
-
-const LastUpdate = mongoose.model("LastUpdate", lastUpdateSchema);
+const LastUpdate = mongoose.model<ILastUpdate>("LastUpdate", lastUpdateSchema);
 
 export default LastUpdate;
