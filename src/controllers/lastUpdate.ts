@@ -12,30 +12,30 @@ const getAll = (req: Request, res: Response): void => {
     });
 };
 
-const getAllByChamp = (req: Request, res: Response): void => {
+const getByChamp = (req: Request, res: Response): void => {
   LastUpdate.find({ championship: req.params.champ })
-    .then((lastUpdates: Array<ILastUpdate>) => {
-      res.status(200).send(lastUpdates);
+    .then((lastUpdate: ILastUpdate) => {
+      res.status(200).send(lastUpdate);
     })
     .catch(() => {
       res.status(404).send("Error");
     });
 };
 
-const createMany = (req: Request, res: Response): void => {
-  LastUpdate.insertMany(req.body)
-    .then((t) => {
-      res.status(201).send(t);
+const createForChamp = (req: Request, res: Response): void => {
+  LastUpdate.create(req.body)
+    .then((lastUpdate: ILastUpdate) => {
+      res.status(201).send(lastUpdate);
     })
     .catch(() => {
       res.status(400).send("Error");
     });
 };
 
-const deleteAllByChamp = (req: Request, res: Response): void => {
+const deleteByChamp = (req: Request, res: Response): void => {
   LastUpdate.deleteMany({ championship: req.params.champ })
     .then(() => {
-      res.status(202).send("dropped all table");
+      res.status(202).send("Deleted");
     })
     .catch(() => {
       res.status(400).send("Error");
@@ -44,7 +44,7 @@ const deleteAllByChamp = (req: Request, res: Response): void => {
 
 export default {
   getAll,
-  getAllByChamp,
-  createMany,
-  deleteAllByChamp,
+  getByChamp,
+  createForChamp,
+  deleteByChamp,
 };

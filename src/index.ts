@@ -5,6 +5,7 @@ import { json } from "body-parser";
 
 // Routes
 import lastUpdateRouter from "./routes/lastUpdate";
+import nextMatchesRouter from "./routes/nextMatches";
 
 dotenv.config();
 const app = express();
@@ -24,7 +25,8 @@ mongoose.connect(
 
 app.use(json());
 app.use("/api/last-update", lastUpdateRouter);
+app.use("/api/next-matches", nextMatchesRouter);
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("server is listening port 3000");
 });

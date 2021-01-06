@@ -6,10 +6,10 @@ const router = express.Router();
 
 router.get("/", lastUpdateCtrl.getAll);
 
-router.get("/:champ", lastUpdateCtrl.getAllByChamp);
+router.get("/:champ", lastUpdateCtrl.getByChamp);
 
-router.post("/", lastUpdateCtrl.createMany);
+router.post("/", lastUpdateCtrl.createForChamp);
 
-router.delete("/:champ", lastUpdateCtrl.deleteAllByChamp);
+router.delete("/:champ", lastUpdateCtrl.deleteByChamp);
 
 export default router;
