@@ -1,13 +1,15 @@
-import express, { Request, Response } from "express";
+import express from "express";
+
+import lastUpdateCtrl from "../controllers/lastUpdate";
 
 const router = express.Router();
 
-router.get("/api/last-update", (req: Request, res: Response) => {
-  return res.send("last update got");
-});
+router.get("/", lastUpdateCtrl.getAll);
 
-router.post("/api/last-update", (req: Request, res: Response) => {
-  return res.send("last update created");
-});
+router.get("/:champ", lastUpdateCtrl.getByChamp);
+
+router.post("/", lastUpdateCtrl.createForChamp);
+
+router.delete("/:champ", lastUpdateCtrl.deleteByChamp);
 
 export default router;
