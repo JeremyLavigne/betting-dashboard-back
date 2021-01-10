@@ -68,6 +68,6 @@ const nextMatchesSchema = new mongoose.Schema({
   },
 });
 
-const LastUpdate = mongoose.model<INextMatch>("NextMatches", nextMatchesSchema);
+const NextMatch = mongoose.model<INextMatch>("NextMatches", nextMatchesSchema);
 
-export default LastUpdate;
+export default NextMatch;
