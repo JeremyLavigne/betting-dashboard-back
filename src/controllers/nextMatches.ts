@@ -13,6 +13,7 @@ const getAll = (req: Request, res: Response): void => {
 };
 
 const getAllByChamp = (req: Request, res: Response): void => {
+  console.log(req.params.champ);
   NextMatch.find({ championship: req.params.champ })
     .then((nextMatches: Array<INextMatch>) => {
       res.status(200).send(nextMatches);
