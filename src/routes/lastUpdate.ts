@@ -10,6 +10,8 @@ router.get("/:champ", lastUpdateCtrl.getByChamp);
 
 router.post("/", lastUpdateCtrl.createForChamp);
 
+router.put("/", lastUpdateCtrl.updateForChamp);
+
 router.delete("/:champ", lastUpdateCtrl.deleteByChamp);
 
 export default router;

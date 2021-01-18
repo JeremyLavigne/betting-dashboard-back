@@ -7,7 +7,7 @@ const nextMatchesSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   homeTeam: {
@@ -34,16 +34,40 @@ const nextMatchesSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  betAmount: {
+  fairOddD: {
     type: Number,
     required: true,
   },
-  betOn: {
+  fairOddA: {
+    type: Number,
+    required: true,
+  },
+  betAmountH: {
+    type: Number,
+    required: true,
+  },
+  betAmountD: {
+    type: Number,
+    required: true,
+  },
+  betAmountA: {
+    type: Number,
+    required: true,
+  },
+  betOnH: {
+    type: Boolean,
+    required: true,
+  },
+  betOnD: {
+    type: Boolean,
+    required: true,
+  },
+  betOnA: {
     type: Boolean,
     required: true,
   },
 });
 
-const LastUpdate = mongoose.model<INextMatch>("NextMatches", nextMatchesSchema);
+const NextMatch = mongoose.model<INextMatch>("NextMatches", nextMatchesSchema);
 
-export default LastUpdate;
+export default NextMatch;

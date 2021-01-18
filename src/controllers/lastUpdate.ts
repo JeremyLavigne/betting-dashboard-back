@@ -32,6 +32,16 @@ const createForChamp = (req: Request, res: Response): void => {
     });
 };
 
+const updateForChamp = (req: Request, res: Response): void => {
+  LastUpdate.updateOne(req.body)
+    .then((lastUpdate: ILastUpdate) => {
+      res.status(201).send(lastUpdate);
+    })
+    .catch(() => {
+      res.status(400).send("Error");
+    });
+};
+
 const deleteByChamp = (req: Request, res: Response): void => {
   LastUpdate.deleteMany({ championship: req.params.champ })
     .then(() => {
@@ -46,5 +56,6 @@ export default {
   getAll,
   getByChamp,
   createForChamp,
+  updateForChamp,
   deleteByChamp,
 };
