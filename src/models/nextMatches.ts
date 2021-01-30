@@ -66,6 +66,10 @@ const nextMatchesSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  matchNumber: {
+    type: Number,
+    required: true,
+  },
 });
 
 const NextMatch = mongoose.model<INextMatch>("NextMatches", nextMatchesSchema);
